@@ -36,6 +36,9 @@ if(isProduction){
   mongoose.set('debug', true);
 }
 
+/* Model imports */
+require('./models');
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
