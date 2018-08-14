@@ -2,7 +2,6 @@ let http = require('http'),
     fs = require('fs'),
     path = require('path'),
     express = require('express'),
-    subdomain = require('express-subdomain'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     cors = require('cors'),
@@ -40,7 +39,7 @@ if(isProduction){
 require('./models');
 
 const routes = require('./routes');
-app.use(subdomain('api', routes));
+app.use('/', routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

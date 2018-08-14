@@ -1,7 +1,5 @@
 var router = require('express').Router();
 
-router.use('/albums', require('./albums'));
-router.use('/playlists', require('./playlists'));
-router.use('/songs', require('./songs'));
+router.use('/api', require('./api'));
 
 module.exports = router;
