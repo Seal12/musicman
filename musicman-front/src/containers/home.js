@@ -7,7 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+
+import AutoComplete from './common/autocomplete'
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
@@ -78,15 +79,7 @@ class Home extends Component {
 
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
-                <form className={classes.container} noValidate autoComplete="off">
-                  <TextField
-                    id="search"
-                    label="Search field"
-                    type="search"
-                    className={classes.textField}
-                    margin="normal"
-                  />
-                </form>
+                <AutoComplete />
               </Grid>
             </div>
           </div>

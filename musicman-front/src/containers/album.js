@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+
+import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
 const styles = theme => ({
   appBar: {
@@ -54,97 +51,79 @@ const styles = theme => ({
   },
 });
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+class Album extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      cards: [
+        {key: 1, title: 'Album 1', artist: "Artist 1", songs: 2, url: ""},
+        {key: 2, title: 'Album 1', artist: "Artist 2", songs: 5, url: ""},
+        {key: 3, title: 'Album 1', artist: "Artist 3", songs: 8, url: ""},
+        {key: 4, title: 'Album 1', artist: "Artist 4", songs: 1, url: ""},
+        {key: 5, title: 'Album 1', artist: "Artist 5", songs: 3, url: ""},
+      ]
+     }
+  }
 
-function Album(props) {
-  const { classes } = props;
-
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="title" color="inherit" noWrap>
-            Album layout
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        {/* Hero unit */}
-        <div className={classes.heroUnit}>
-          <div className={classes.heroContent}>
-            <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-              Album layout
-            </Typography>
-            <Typography variant="title" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
+  render() {
+    const { classes } = this.props;
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <main>
+          {/* Hero unit */}
+          <div className={classes.heroUnit}>
+            <div className={classes.heroContent}>
+              <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
+                My Albums
+              </Typography>
+              <Typography variant="title" align="center" color="textSecondary" paragraph>
+                View a list albums you saved
+              </Typography>
             </div>
           </div>
-        </div>
-        <div className={classNames(classes.layout, classes.cardGrid)}>
-          {/* End hero unit */}
-          <Grid container spacing={40}>
-            {cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
-                <Card>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" // eslint-disable-line max-len
-                    title="Image title"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </div>
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="title" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subheading" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
-  );
+          <div className={classNames(classes.layout, classes.cardGrid)}>
+            {/* End hero unit */}
+            <Grid container spacing={40}>
+              {this.state.cards.map(card => (
+                <Grid item key={card} sm={6} md={4} lg={3}>
+                  <Card>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={gclef_shodow_md}
+                      title="Image title"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="headline" component="h2">
+                        {card.title}
+                      </Typography>
+                      <Typography>
+                        <strong>Artist:</strong> {card.artist}
+                      </Typography>
+                      <Typography>
+                        <strong>Songs:</strong> {card.songs}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </main>
+        {/* Footer */}
+        <footer className={classes.footer}>
+          <Typography variant="title" align="center" gutterBottom>
+            Footer
+          </Typography>
+          <Typography variant="subheading" align="center" color="textSecondary" component="p">
+            Something here to give the footer a purpose!
+          </Typography>
+        </footer>
+        {/* End footer */}
+      </React.Fragment>
+    );
+  }
 }
-
 Album.propTypes = {
   classes: PropTypes.object.isRequired,
 };
