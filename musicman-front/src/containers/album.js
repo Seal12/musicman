@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
   appBar: {
@@ -17,10 +20,6 @@ const styles = theme => ({
   },
   icon: {
     marginRight: theme.spacing.unit * 2,
-  },
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
   },
   heroUnit: {
     backgroundColor: theme.palette.background.paper,
@@ -49,50 +48,52 @@ const styles = theme => ({
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 400,
-  },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing.unit * 6,
   },
 });
 
-const cards = [1, 2, 3];
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state={ }
-  }
+function Album(props) {
+  const { classes } = props;
 
-  render() {
-    const { classes } = this.props;
-    return (
-      <div>
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          <CameraIcon className={classes.icon} />
+          <Typography variant="title" color="inherit" noWrap>
+            Album layout
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
             <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-              Welcome to <span className={classes.heroContent}>MusicMan</span>
+              Album layout
             </Typography>
             <Typography variant="title" align="center" color="textSecondary" paragraph>
-              MusicMan is a music management website that lets you keep a personal album of all your favourite songs. It allows you to search for songs by artist, album and even partial lyrics. Once you have your song, create a playlist for future use.
+              Something short and leading about the collection below—its contents, the creator, etc.
+              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+              entirely.
             </Typography>
-
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
-                <form className={classes.container} noValidate autoComplete="off">
-                  <TextField
-                    id="search"
-                    label="Search field"
-                    type="search"
-                    className={classes.textField}
-                    margin="normal"
-                  />
-                </form>
+                <Grid item>
+                  <Button variant="contained" color="primary">
+                    Main call to action
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary">
+                    Secondary action
+                  </Button>
+                </Grid>
               </Grid>
             </div>
           </div>
@@ -129,13 +130,23 @@ class Home extends Component {
             ))}
           </Grid>
         </div>
-      </div>
-    );
-  }
+      </main>
+      {/* Footer */}
+      <footer className={classes.footer}>
+        <Typography variant="title" align="center" gutterBottom>
+          Footer
+        </Typography>
+        <Typography variant="subheading" align="center" color="textSecondary" component="p">
+          Something here to give the footer a purpose!
+        </Typography>
+      </footer>
+      {/* End footer */}
+    </React.Fragment>
+  );
 }
 
-Home.propTypes = {
+Album.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Album);
