@@ -8,7 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
-import AutoComplete from './common/autocomplete'
+import AutoComplete from './common/autocomplete';
+import RadioGroupButtons from './common/radioGroupButtons';
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
@@ -78,6 +79,9 @@ class Home extends Component {
             </Typography>
 
             <div className={classes.heroButtons}>
+              <Grid container spacing={16} justify="left">
+                <RadioGroupButtons />
+              </Grid>
               <Grid container spacing={16} justify="center">
                 <AutoComplete />
               </Grid>
