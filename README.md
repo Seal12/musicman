@@ -3,7 +3,7 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+MusicMan is a music management website that lets you keep a personal album of all your favourite songs. It allows you to search for songs by artist, album and even partial lyrics. Once you have your song, create a playlist for future use.
 
 ### Structure
 - `back/` contains the application's server.
