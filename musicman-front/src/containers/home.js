@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Card from '@material-ui/core/Card';
@@ -10,6 +11,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import AutoComplete from './common/autocomplete';
 import RadioGroupButtons from './common/radioGroupButtons';
+
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
@@ -57,9 +59,9 @@ class Home extends Component {
     super(props);
     this.state= {
       cards: [
-        {key: 1, name: 'Albums', description: "View a list albums you saved", url: ""},
-        {key: 2, name: 'Songs', description: "View all my songs", url: ""},
-        {key: 3, name: 'Playlists', description: "View my playlists", url: ""},
+        {key: 1, name: 'Albums', description: "View a list albums you saved", url: "/albums"},
+        {key: 2, name: 'Songs', description: "View all my songs", url: "/songs"},
+        {key: 3, name: 'Playlists', description: "View my playlists", url: "/playlists"},
       ]
      }
   }
@@ -79,7 +81,7 @@ class Home extends Component {
             </Typography>
 
             <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="left">
+              <Grid container spacing={16}>
                 <RadioGroupButtons />
               </Grid>
               <Grid container spacing={16} justify="center">
@@ -93,21 +95,23 @@ class Home extends Component {
           <Grid container spacing={40}>
             {this.state.cards.map(card => (
               <Grid item key={card.key} sm={6} md={4} lg={4}>
-                <Card>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={gclef_shodow_md}
-                    title="Image title"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                      {card.name}
-                    </Typography>
-                    <Typography>
-                      {card.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
+                <Link to={card.url}>
+                  <Card>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image={gclef_shodow_md}
+                      title="Image title"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="headline" component="h2">
+                        {card.name}
+                      </Typography>
+                      <Typography>
+                        {card.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Link>
               </Grid>
             ))}
           </Grid>

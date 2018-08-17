@@ -8,6 +8,9 @@ import Header from './common/header';
 import { Routes } from '../Routes'
 
 const styles = theme => ({
+  canvas: {
+    minHeight: '70vh'
+  },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing.unit * 6,
@@ -26,7 +29,7 @@ class Main extends Component {
       <React.Fragment>
         <CssBaseline />
         <Header />
-        <main>
+        <main className={classes.canvas}>
           <Routes />
         </main>
         {/* Footer */}

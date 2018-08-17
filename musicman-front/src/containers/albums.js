@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -84,7 +83,7 @@ class Albums extends Component {
           {/* End hero unit */}
           <Grid container spacing={40}>
             {this.state.cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
+              <Grid item key={card.key} sm={6} md={4} lg={3}>
                 <Card>
                   <CardMedia
                     className={classes.cardMedia}

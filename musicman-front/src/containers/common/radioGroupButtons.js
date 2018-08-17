@@ -15,9 +15,13 @@ const styles = theme => ({
 class RadioGroupButtons extends React.Component {
   constructor(props){
     super(props);
-    let options = ['Track Title', 'Artist', 'Partial Lyrics'];
+    let options = [
+      {key: 1, name: 'Track Title'},
+      {key: 2, name: 'Artist'},
+      {key: 3, name: 'Partial Lyrics'}
+    ];
     this.state={
-      selectedValue: options[0],
+      selectedValue: options[0].name,
       options: options
     };
   }
@@ -39,9 +43,10 @@ class RadioGroupButtons extends React.Component {
           >
             {this.state.options.map(option => (
               <FormControlLabel
-                  value={option}
-                  control={<Radio checked={this.state.selectedValue === option} color="primary"/>}
-                  label={option}
+                  key={option.key}
+                  value={option.name}
+                  control={<Radio checked={this.state.selectedValue === option.name} color="primary"/>}
+                  label={option.name}
                   onChange={this.handleChange}
                 />
               ))
