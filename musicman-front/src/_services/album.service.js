@@ -3,14 +3,14 @@ import apiService from './apiService';
 const controllerUrl = '/albums'
 
 export const albumService = {
-  create,
-  getAll,
-  getById,
-  update,
-  delete
+  Create,
+  GetAll,
+  GetById,
+  Update,
+  Delete
 };
 
-create = (album) => {
+function Create(album){
   return apiService.post(controllerUrl, album)
     .then(function (response) {
       return response;
@@ -20,7 +20,7 @@ create = (album) => {
     });
 }
 
-getAll = () => {
+function GetAll(){
   return apiService.get(controllerUrl)
     .then((response) => {
       return response
@@ -30,7 +30,7 @@ getAll = () => {
     })
 }
 
-getById = (albumId) => {
+function GetById(albumId){
   return apiService.get(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
       return response
@@ -40,7 +40,7 @@ getById = (albumId) => {
     })
 }
 
-update = (albumId, album) => {
+function Update(albumId, album){
   return apiService.put(controllerUrl,  {
       params: {id: albumId},
       body: album
@@ -53,7 +53,7 @@ update = (albumId, album) => {
     })
 }
 
-delete = (albumId) => {
+function Delete(albumId){
   return apiService.delete(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
       return response
