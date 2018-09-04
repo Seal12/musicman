@@ -13,4 +13,5 @@ MusicMan music management server.
 - Open terminal/cmd in this folder and run `npm install` to install all the dependencies.
 
 ### Running
-- Type `npm start` to launch the site
+- Type `npm start` to launch the server
+- Type `npm run dev` to launch the server with hot reload
