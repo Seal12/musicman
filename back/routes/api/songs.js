@@ -20,7 +20,7 @@ songRouter.get('/',  (req, res, next) => {
   });
 });
 
-plasongRouterylistRouter.get('/:id',  (req, res, next) => {
+songRouter.get('/:id',  (req, res, next) => {
   return Song.findById(req.params.id).then((song) => {
     if(!song) { return res.sendStatus(404); }
 
