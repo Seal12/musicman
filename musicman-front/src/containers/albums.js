@@ -10,6 +10,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
+import { albumService } from '../_services';
+
 const styles = theme => ({
   appBar: {
     position: 'relative',
@@ -62,6 +64,8 @@ class Albums extends Component {
         {key: 5, title: 'Album 1', artist: "Artist 5", songs: 3, url: ""},
       ]
      }
+     console.log(albumService.GetAll());
+     
   }
 
   render() {
