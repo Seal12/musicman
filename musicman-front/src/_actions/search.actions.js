@@ -1,12 +1,12 @@
 import { searchConstants } from '../_constants';
 
-export const songActions = {
+export const searchActions = {
   changeProber,
 };
 
 function changeProber(newProber) {
   return dispatch => {
-    dispatch(request(song));
+    dispatch(request(newProber));
   };
 
   function update(prober) {
