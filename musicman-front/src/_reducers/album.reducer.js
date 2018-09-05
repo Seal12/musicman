@@ -27,19 +27,19 @@ export function albums(state = [], action) {
     //GetAll
     case albumConstants.ALBUM_GETALL_REQUEST:
       return {
-        ..state,
+        ...state,
         loading: true
       };
     case albumConstants.ALBUM_GETALL_SUCCESS:
       return {
-        ..state,
+        ...state,
         loading: false,
         getAllSuccess: true,
         albums: action.albums
       };
     case albumConstants.ALBUM_GETALL_FAILURE:
       return {
-        ..state,
+        ...state,
         loading: false,
         getAllSuccess: false,
         error: action.error
@@ -48,12 +48,12 @@ export function albums(state = [], action) {
     //GetById
     case albumConstants.ALBUM_GETBYID_REQUEST:
       return {
-        ..state,
+        ...state,
         loading: true
       };
     case albumConstants.ALBUM_GETBYID_SUCCESS:
       return {
-        ..state,
+        ...state,
         loading: false,
         getByIdSuccess: true,
         error: action.error,
@@ -61,7 +61,7 @@ export function albums(state = [], action) {
       };
     case albumConstants.ALBUM_GETBYID_FAILURE:
       return {
-        ..state,
+        ...state,
         loading: false,
         getByIdSuccess: false,
         error: action.error
@@ -70,12 +70,12 @@ export function albums(state = [], action) {
     //Update
     case albumConstants.ALBUM_UPDATE_REQUEST:
       return {
-        ..state,
+        ...state,
         loading: true
       };
     case albumConstants.ALBUM_UPDATE_SUCCESS:
       return {
-        ..state,
+        ...state,
         loading: false,
         updateSuccess: true,
         error: action.error,
@@ -83,7 +83,7 @@ export function albums(state = [], action) {
       };
     case albumConstants.ALBUM_UPDATE_FAILURE:
       return {
-        ..state,
+        ...state,
         loading: false,
         updateSuccess: false,
         error: action.error
@@ -92,12 +92,12 @@ export function albums(state = [], action) {
     //Delete
     case albumConstants.ALBUM_DELETE_REQUEST:
       return {
-        ..state,
+        ...state,
         loading: true
       };
     case albumConstants.ALBUM_DELETE_SUCCESS:
       return {
-        ..state,
+        ...state,
         loading: false,
         deleteSuccess: true,
         error: action.error,
@@ -105,7 +105,7 @@ export function albums(state = [], action) {
       };
     case albumConstants.ALBUM_DELETE_FAILURE:
       return {
-        ..state,
+        ...state,
         loading: false,
         deleteSuccess: false,
         error: action.error
