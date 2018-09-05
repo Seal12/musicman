@@ -11,13 +11,18 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Body from './body';
 
-import AutoComplete from './common/autocomplete';
-import RadioGroupButtons from './common/radioGroupButtons';
+import SongSearch from './songSearch';
 
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
 const styles = theme => ({
+  cardGrid: {
+    padding: `${theme.spacing.unit * 8}px 0`,
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
   container: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -30,9 +35,6 @@ const styles = theme => ({
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
-  heroButtons: {
-    marginTop: theme.spacing.unit * 4,
-  },
   layout: {
     width: 'auto',
     marginLeft: theme.spacing.unit * 3,
@@ -42,12 +44,6 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -81,15 +77,7 @@ class Home extends Component {
             <Typography variant="title" align="center" color="textSecondary" paragraph>
               MusicMan is a music management website that lets you keep a personal album of all your favourite songs. It allows you to search for songs by artist, album and even partial lyrics. Once you have your song, create a playlist for future use.
             </Typography>
-
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16}>
-                <RadioGroupButtons />
-              </Grid>
-              <Grid container spacing={16} justify="center">
-                <AutoComplete />
-              </Grid>
-            </div>
+            <SongSearch />
           </div>
         </div>
         {/* End hero unit */}

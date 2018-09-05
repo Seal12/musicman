@@ -17,7 +17,6 @@ import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 import { songActions } from '../_actions'
 
 import Body from './body';
-import AutoComplete from './common/autocomplete';
 
 const styles = theme => ({
   addButton: {
@@ -84,7 +83,7 @@ class Song extends Component {
   }
 
   AddSong(){
-    
+
   }
 
   render() {
@@ -106,7 +105,6 @@ class Song extends Component {
         {/* End hero unit */}
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <h1>Add new song</h1>
-          <AutoComplete />
         </div>
       </Body>
     );
