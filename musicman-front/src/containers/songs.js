@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';

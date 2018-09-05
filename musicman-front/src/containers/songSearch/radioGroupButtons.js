@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from '@material-ui/core/styles';
+
+import { searchActions } from '../../_actions'
+import { searchConstants } from '../../_constants';
 
 const styles = theme => ({
   group: {
@@ -16,18 +21,21 @@ class RadioGroupButtons extends React.Component {
   constructor(props){
     super(props);
     let options = [
-      {key: 1, name: 'Track Title'},
-      {key: 2, name: 'Artist'},
-      {key: 3, name: 'Partial Lyrics'}
+      {key: 1, name: 'Track Title', value: searchConstants.PROBER_TRACK},
+      {key: 2, name: 'Artist', value: searchConstants.PROBER_ARTIST},
+      {key: 3, name: 'Partial Lyrics', value: searchConstants.PROBER_LYRIC}
     ];
     this.state={
-      selectedValue: options[0].name,
-      options: options
+      selectedValue: options[0].value,
+      options: options,
     };
+
   }
 
   handleChange = event => {
-    this.setState({ selectedValue: event.target.value });
+    var searchBy = event.target.value;
+    this.props.changeProber(searchBy)
+    this.setState({ selectedValue: searchBy });
   };
 
   render() {
@@ -44,8 +52,8 @@ class RadioGroupButtons extends React.Component {
             {this.state.options.map(option => (
               <FormControlLabel
                   key={option.key}
-                  value={option.name}
-                  control={<Radio checked={this.state.selectedValue === option.name} color="primary"/>}
+                  value={option.value}
+                  control={<Radio checked={this.state.selectedValue === option.value} color="primary"/>}
                   label={option.name}
                   onChange={this.handleChange}
                 />
@@ -61,4 +69,20 @@ RadioGroupButtons.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RadioGroupButtons);
+RadioGroupButtons = withStyles(styles)(RadioGroupButtons);
+
+RadioGroupButtons.propTypes = {
+  changeProber: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  prober: state.search.prober,
+})
+
+
+export default connect(
+  mapStateToProps,
+  {
+    changeProber: searchActions.changeProber,
+  }
+)(RadioGroupButtons)

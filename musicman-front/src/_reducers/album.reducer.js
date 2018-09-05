@@ -1,6 +1,6 @@
 import { albumConstants } from '../_constants';
 
-export function albums(state = [], action) {
+export function albums(state = {}, action) {
   switch (action.type) {
     //Create
     case albumConstants.ALBUM_CREATE_REQUEST:

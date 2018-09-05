@@ -1,6 +1,6 @@
 import { songConstants } from '../_constants';
 
-export function songs(state = [], action) {
+export function songs(state = {}, action) {
   switch (action.type) {
     //Create
     case songConstants.SONG_CREATE_REQUEST:
