@@ -11,7 +11,7 @@ export function albums(state = [], action) {
     case albumConstants.ALBUM_CREATE_SUCCESS:
       return {
         ...state,
-        createSuccess: true,
+        success: true,
         loading: false,
         error: action.error,
         album: action.album
@@ -19,7 +19,7 @@ export function albums(state = [], action) {
     case albumConstants.ALBUM_CREATE_FAILURE:
       return {
         ...state,
-        createSuccess: false,
+        success: false,
         loading: false,
         error: action.error
       };
@@ -34,14 +34,14 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        getAllSuccess: true,
+        success: true,
         albums: action.albums
       };
     case albumConstants.ALBUM_GETALL_FAILURE:
       return {
         ...state,
         loading: false,
-        getAllSuccess: false,
+        success: false,
         error: action.error
       };
 
@@ -55,7 +55,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        getByIdSuccess: true,
+        success: true,
         error: action.error,
         album: action.album
       };
@@ -63,7 +63,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        getByIdSuccess: false,
+        success: false,
         error: action.error
       };
 
@@ -77,7 +77,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        updateSuccess: true,
+        success: true,
         error: action.error,
         album: action.album
       };
@@ -85,7 +85,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        updateSuccess: false,
+        success: false,
         error: action.error
       };
 
@@ -99,7 +99,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        deleteSuccess: true,
+        success: true,
         error: action.error,
         status: action.status
       };
@@ -107,7 +107,7 @@ export function albums(state = [], action) {
       return {
         ...state,
         loading: false,
-        deleteSuccess: false,
+        success: false,
         error: action.error
       };
 

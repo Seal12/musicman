@@ -1,1 +1,1 @@
-export * from './almub.actions';
+export * from './album.actions';

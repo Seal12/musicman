@@ -52,17 +52,19 @@ const styles = theme => ({
   },
 });
 
+var dummyData = [
+  {key: 1, title: 'Album 1', artist: "Artist 1", genre: "Gendre A", url: ""},
+  {key: 2, title: 'Album 1', artist: "Artist 2", genre: "Gendre C", url: ""},
+  {key: 3, title: 'Album 1', artist: "Artist 3", genre: "Gendre C", url: ""},
+  {key: 4, title: 'Album 1', artist: "Artist 4", genre: "Gendre B", url: ""},
+  {key: 5, title: 'Album 1', artist: "Artist 5", genre: "Gendre A", url: ""},
+]
 class Songs extends Component {
   constructor(props){
     super(props);
     this.state= {
-      cards: [
-        {key: 1, title: 'Album 1', artist: "Artist 1", genre: "Gendre A", url: ""},
-        {key: 2, title: 'Album 1', artist: "Artist 2", genre: "Gendre C", url: ""},
-        {key: 3, title: 'Album 1', artist: "Artist 3", genre: "Gendre C", url: ""},
-        {key: 4, title: 'Album 1', artist: "Artist 4", genre: "Gendre B", url: ""},
-        {key: 5, title: 'Album 1', artist: "Artist 5", genre: "Gendre A", url: ""},
-      ]
+      cards: dummyData,
+      songs: []
      }
   }
 
