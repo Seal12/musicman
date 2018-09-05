@@ -3,60 +3,60 @@ import apiService from './apiService';
 const controllerUrl = '/albums'
 
 export const albumService = {
-  create,
-  getAll,
-  getById,
-  update,
-  delete
+  Create,
+  GetAll,
+  GetById,
+  Update,
+  Remove
 };
 
-create = (album) => {
+function Create(album){
   return apiService.post(controllerUrl, album)
     .then(function (response) {
-      return response;
+      return response.data;
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-getAll = () => {
+function GetAll(){
   return apiService.get(controllerUrl)
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
     })
 }
 
-getById = (albumId) => {
+function GetById(albumId){
   return apiService.get(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
     })
 }
 
-update = (albumId, album) => {
+function Update(albumId, album){
   return apiService.put(controllerUrl,  {
       params: {id: albumId},
       body: album
     })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
     })
 }
 
-delete = (albumId) => {
+function Remove(albumId){
   return apiService.delete(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
