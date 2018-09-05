@@ -5,6 +5,9 @@ import { albumService } from '../_services';
 export const albumActions = {
   create,
   getAll,
+  getById,
+  update,
+  remove
 };
 
 
