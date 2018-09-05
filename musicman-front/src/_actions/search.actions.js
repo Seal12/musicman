@@ -6,7 +6,7 @@ export const searchActions = {
 
 function changeProber(newProber) {
   return dispatch => {
-    dispatch(request(newProber));
+    dispatch(update(newProber));
   };
 
   function update(prober) {

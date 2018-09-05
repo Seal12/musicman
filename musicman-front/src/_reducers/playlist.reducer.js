@@ -1,6 +1,6 @@
 import { playlistConstants } from '../_constants';
 
-export function playlists(state = [], action) {
+export function playlists(state = {}, action) {
   switch (action.type) {
     //Create Playlist
     case playlistConstants.PLAYLIST_CREATE_REQUEST:

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
+import { connect } from 'react-redux';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
+
+import { searchActions } from '../../_actions'
+import { searchConstants } from '../../_constants';
 
 const suggestions = [
   { track: "Thriller", artist: "Michael Jackson", lyrics: "" },
@@ -30,12 +34,6 @@ const suggestions = [
   { track: "No Scrubs", artist: "TLC", lyrics: "" },
 
 ];
-
-const searchType = {
-  TRACK: "TRACK",
-  ARTIST: "ARTIST",
-  LYRIC: "LYRIC"
-}
 
 function renderInput(inputProps) {
   const { InputProps, classes, ref, ...other } = inputProps;
@@ -87,17 +85,17 @@ function getSuggestions(inputValue, type) {
 
   return suggestions.filter(suggestion => {
     switch (type){
-      case searchType.TRACK:
+      case searchConstants.PROBER_TRACK:
         count += 1;
         return (!inputValue || suggestion.track.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&
                   count <= maxResult;
 
-      case searchType.ARTIST:
+      case searchConstants.PROBER_ARTIST:
         count += 1;
         return (!inputValue || suggestion.artist.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&
                   count <= maxResult;
 
-      case searchType.LYRIC:
+      case searchConstants.PROBER_LYRIC:
         count += 1;
         return (!inputValue || suggestion.lyrics.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&
                   count <= maxResult;
@@ -138,11 +136,21 @@ const styles = theme => ({
 class AutoComplete extends Component {
   constructor(props){
     super(props);
-    this.state= {}
+    this.state= {
+      searchBy: this.props.prober
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps);
+    this.setState({
+      searchBy: nextProps.prober,
+    })
   }
 
   render() {
     const { classes } = this.props;
+    console.log(this.state.searchBy);
     return (
       <div className={classes.root}>
         <Downshift id="downshift-simple">
@@ -157,7 +165,7 @@ class AutoComplete extends Component {
               })}
               {isOpen ? (
                 <Paper className={classes.paper} square>
-                  {getSuggestions(inputValue, searchType.TRACK).map((suggestion, index) =>
+                  {getSuggestions(inputValue, this.state.searchBy).map((suggestion, index) =>
                     renderSuggestion({
                       suggestion,
                       index,
@@ -181,4 +189,11 @@ AutoComplete.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AutoComplete);
+AutoComplete = withStyles(styles)(AutoComplete)
+
+const mapStateToProps = (state) => ({
+  prober: state.search.prober,
+})
+
+
+export default connect( mapStateToProps, {} )(AutoComplete)
