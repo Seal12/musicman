@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 import Header from './common/header';
-import { Routes } from '../Routes'
 
 const styles = theme => ({
   canvas: {
