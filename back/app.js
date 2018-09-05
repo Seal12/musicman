@@ -9,6 +9,8 @@ let http = require('http'),
     errorhandler = require('errorhandler'),
     mongoose = require('mongoose');
 
+//Setup environment
+require('dotenv').config();
 
 let isProduction = process.env.NODE_ENV === 'production';
 
@@ -21,6 +23,7 @@ app.use(cors());
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.disable('etag');
 
 app.use(require('method-override')());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,10 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'guardian-angel', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false  }));
 
 if(isProduction){
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect(process.env.DB_URL);
 } else {
   app.use(errorhandler());
-  mongoose.connect('mongodb://localhost/musicman-db');
+  mongoose.connect(process.env.DB_URL);
   mongoose.set('debug', true);
 }
 
