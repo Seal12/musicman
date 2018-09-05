@@ -35,7 +35,6 @@ export function albums(state = [], action) {
         ..state,
         loading: false,
         getAllSuccess: true,
-        error: action.error,
         albums: action.albums
       };
     case albumConstants.ALBUM_GETALL_FAILURE:
@@ -102,7 +101,7 @@ export function albums(state = [], action) {
         loading: false,
         deleteSuccess: true,
         error: action.error,
-        status: action.stat
+        status: action.status
       };
     case albumConstants.ALBUM_DELETE_FAILURE:
       return {

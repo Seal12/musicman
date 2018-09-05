@@ -53,7 +53,7 @@ function Update(albumId, album){
     })
 }
 
-function Delete(albumId){
+function Remove(albumId){
   return apiService.delete(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
       return response.data
