@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux'
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
@@ -72,9 +73,9 @@ class Albums extends Component {
       albums: []
      }
   }
+
   componentDidMount() {
-    var albums = this.props.getAll();
-    this.setState({albums: albums, loading: false})
+    this.props.getAll();
   }
 
   componentWillReceiveProps(nextProps){
@@ -101,7 +102,7 @@ class Albums extends Component {
           {this.state.loading && <Loader />}
           {!this.state.loading &&
             <Grid container spacing={40}>
-              {this.state.albums.map(album => (
+              {this.state.albums && this.state.albums.map(album => (
                 <Grid item key={album._id} sm={6} md={4} lg={3}>
                   <Card>
                     <CardMedia
