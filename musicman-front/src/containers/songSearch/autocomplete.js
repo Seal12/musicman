@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 
-import Grid from '@material-ui/core/Grid';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -69,7 +68,7 @@ function renderSuggestion({ suggestion, index, itemProps, highlightedIndex, sele
         fontWeight: isSelected ? 500 : 400,
       }}
     >
-      {suggestion.track} <strong> by </strong> {suggestion.artist}
+      <span>{suggestion.track} <strong> BY </strong> {suggestion.artist}</span>
     </MenuItem>
   );
 }
@@ -102,6 +101,9 @@ function getSuggestions(inputValue, type) {
         count += 1;
         return (!inputValue || suggestion.lyrics.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&
                   count <= maxResult;
+
+      default:
+        return true
     }
   });
 }
