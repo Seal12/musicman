@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 });
 
-class Main extends Component {
+class Body extends Component {
   constructor(props){
     super(props);
     this.state={ }
@@ -30,7 +30,7 @@ class Main extends Component {
         <CssBaseline />
         <Header />
         <main className={classes.canvas}>
-          <Routes />
+          {this.props.children}
         </main>
         {/* Footer */}
         <footer className={classes.footer}>
@@ -47,8 +47,8 @@ class Main extends Component {
   }
 }
 
-Main.propTypes = {
+Body.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Main);
+export default withStyles(styles)(Body);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -46,10 +47,12 @@ class Header extends Component{
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <Typography variant="title" color="inherit" noWrap>
-            <Button className={classes.button}>
-              <HomeIcon className={classes.icon} />
-              <h4 className={classes.title}>MusicMan</h4>
-            </Button>
+            <Link to='/'>
+              <Button className={classes.button}>
+                <HomeIcon className={classes.icon} />
+                <h4 className={classes.title}>MusicMan</h4>
+              </Button>
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>

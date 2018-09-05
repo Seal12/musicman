@@ -10,6 +10,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
+import Body from './body';
+
 const styles = theme => ({
   appBar: {
     position: 'relative',
@@ -67,7 +69,7 @@ class Songs extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <Body>
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
@@ -106,7 +108,7 @@ class Songs extends Component {
             ))}
           </Grid>
         </div>
-      </div>
+      </Body>
     );
   }
 }
