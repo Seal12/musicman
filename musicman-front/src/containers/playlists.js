@@ -14,6 +14,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 
+import Body from './body';
 import PlaylistTable from './playlists/playlistTable';
 
 const styles = theme => ({
@@ -52,23 +53,25 @@ class Playlists extends Component  {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
-        <List
-          component="nav"
-          subheader={<ListSubheader component="div">My Playlists</ListSubheader>}
-         className={classes.listContainer}
-        >
-          {this.state.playlists.map(playList => (
-            <ListItem button>
-              <ListItemIcon>
-                  <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary={playList.name} />
-            </ListItem>
-          ))}
-        </List>
-        <PlaylistTable />
-      </div>
+      <Body>
+        <div className={classes.root}>
+          <List
+            component="nav"
+            subheader={<ListSubheader component="div">My Playlists</ListSubheader>}
+           className={classes.listContainer}
+          >
+            {this.state.playlists.map(playList => (
+              <ListItem button>
+                <ListItemIcon>
+                    <StarBorder />
+                </ListItemIcon>
+                <ListItemText inset primary={playList.name} />
+              </ListItem>
+            ))}
+          </List>
+          <PlaylistTable />
+        </div>
+      </Body>
     );
   }
 }

@@ -10,6 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import gclef_shodow_md from '../assets/gclef_shodow_md.png';
 
+import Body from './body';
 import { albumService } from '../_services';
 
 const styles = theme => ({
@@ -65,13 +66,13 @@ class Albums extends Component {
       ]
      }
      console.log(albumService.GetAll());
-     
+
   }
 
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <Body>
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
@@ -110,7 +111,7 @@ class Albums extends Component {
             ))}
           </Grid>
         </div>
-      </div>
+      </Body>
     );
   }
 }
