@@ -13,7 +13,7 @@ export const albumService = {
 function Create(album){
   return apiService.post(controllerUrl, album)
     .then(function (response) {
-      return response;
+      return response.data;
     })
     .catch(function (error) {
       console.log(error);
@@ -23,7 +23,7 @@ function Create(album){
 function GetAll(){
   return apiService.get(controllerUrl)
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
@@ -33,7 +33,7 @@ function GetAll(){
 function GetById(albumId){
   return apiService.get(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
@@ -46,7 +46,7 @@ function Update(albumId, album){
       body: album
     })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
@@ -56,7 +56,7 @@ function Update(albumId, album){
 function Delete(albumId){
   return apiService.delete(controllerUrl,  { params: {id: albumId} })
     .then((response) => {
-      return response
+      return response.data
     })
     .catch((error) => {
       handleError(error)
