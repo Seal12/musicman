@@ -43,6 +43,7 @@ function getAll() {
 
     songService.GetAll().then(
       songs => {
+        console.log("Get all songs");
         dispatch(success(songs));
       },
       error => {
