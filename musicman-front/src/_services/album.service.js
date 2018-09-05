@@ -7,7 +7,7 @@ export const albumService = {
   GetAll,
   GetById,
   Update,
-  Delete
+  Remove
 };
 
 function Create(album){
