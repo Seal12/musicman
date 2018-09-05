@@ -57,11 +57,11 @@ const styles = theme => ({
 });
 
 var dummyData = [
-    {_id: 1, title: 'Album 1', artist: "Artist 1", songs: 2, url: ""},
-    {_id: 2, title: 'Album 1', artist: "Artist 2", songs: 5, url: ""},
-    {_id: 3, title: 'Album 1', artist: "Artist 3", songs: 8, url: ""},
-    {_id: 4, title: 'Album 1', artist: "Artist 4", songs: 1, url: ""},
-    {_id: 5, title: 'Album 1', artist: "Artist 5", songs: 3, url: ""},
+    {_id: 1, title: 'Album 1', artist: "Artist 1", songs: [], url: ""},
+    {_id: 2, title: 'Album 1', artist: "Artist 2", songs: [], url: ""},
+    {_id: 3, title: 'Album 1', artist: "Artist 3", songs: [], url: ""},
+    {_id: 4, title: 'Album 1', artist: "Artist 4", songs: [], url: ""},
+    {_id: 5, title: 'Album 1', artist: "Artist 5", songs: [], url: ""},
   ];
 class Albums extends Component {
   constructor(props){
@@ -117,7 +117,7 @@ class Albums extends Component {
                         <strong>Artist:</strong> {album.artist}
                       </Typography>
                       <Typography>
-                        <strong>Songs:</strong> {album.songs}
+                        <strong>Songs:</strong> {album.songs.length}
                       </Typography>
                     </CardContent>
                   </Card>
